@@ -14,25 +14,6 @@
         - dstat
         - sysstat
 
-  - name: copy wallpaper file
-    copy:
-      src: files/wallpaper.jpg
-      dest: /usr/share/backgrounds/ansible-wallpaper.jpg
-      owner: root
-      group: root
-
-  - name: set wallpaper
-    become_user: wos
-    dconf:
-      key: "/org/gnome/desktop/background/picture-uri"
-      value: "'file:///usr/share/backgrounds/ansible-wallpaper.jpg'"
-
-  - name: set wallpaper position
-    become_user: wos
-    dconf:
-      key: "/org/gnome/desktop/background/picture-options"
-      value: "'zoom'"
-
   - name: copy .bashrc file
     copy:
       src: files/bashrc
